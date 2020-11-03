@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Ma maison</title>
+</head>
+<body class="app">
+    <header class="head">
+        <section class="head-left">
+            <nav class="head-nav">
+                <ul>
+                    <li>
+                        <button class="head-nav-btn" id="open-side-menu">
+                            <p>Ouvrir le menu</p>
+                            <img src="/assets/images/icons/double_arrow.svg" alt="">
+                        </button>
+                    </li>
+                    <li>
+                        <button class="head-nav-btn-notification">
+                            <img src="/assets/images/icons/notification-bell.svg" alt="">
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <section class="head-right">
+            <img src="assets/images/weather/partly_cloudy.png" alt="" id="meteo-logo">
+            <p>
+               <span id="dayName">Jeudi</span> <span id="day"></span> <span id="month"></span> <span id="years"></span>
+            </p>
+            <p>
+                <span id="hours">14</span> : <span id="minutes">03</span>
+            </p>
+        </section>
+        </section>
+    </header>
+    <main>
+        <section class="side-menu side-menu-hidden-brut" id="side-menu">
+            <section class="side-menu-el side-menu-user">
+                <header>
+                    <h2>Mon super menu</h2>
+                </header>
+                <ul>
+                    <li>
+                        <a href="#/maison">Ma maison</a>
+                    </li>
+                    <li>
+                        <a href="#/">Acceuil</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="side-menu-el side-menu-devices">
+                <header>
+                    <h2>Mes devices</h2>
+                </header>
+                <ul>
+                    <li>
+                        <span>ON</span>
+                        <p>Capt 1</p>
+                    </li>
+                    <li>
+                        <span>OFF</span>
+                        <p>Capt 2</p>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section class="content" id="content">
+            <div id="content-embeded">
+                <div id="loader" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            </div>
+        </section>
+    </main>
+</body>
+<footer>
+    <script src="js/loader.js"></script>
+    <script>const loader = new Loader()</script>
+    <script src="js/utils.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/controllers/homeController.js"></script>
+    <script src="js/controllers/maisonController.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/app.js" defer></script>
+</footer>
+</html>

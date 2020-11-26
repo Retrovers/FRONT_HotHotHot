@@ -40,4 +40,23 @@ class Utils {
         return s.substr(s.length-size);
     }
 
+    getFullPath() {
+        return document.location.origin  + document.location.pathname
+    }
+
+    getTimeFrom(timestamp) {
+        let current_time = Math.round(new Date().getTime() / 1000);
+        let date = new Date(null)
+        date.setSeconds(current_time - timestamp)
+        let str = ""
+        if (date.getHours() > 0 ) {
+            str = date.getHours() + " heures " + date.getMinutes() + " minutes " + date.getSeconds() + " secondes"
+        } else if (date.getMinutes() > 0) {
+            str = date.getMinutes() + " minutes " + date.getSeconds() + " secondes"
+        } else {
+            str = date.getSeconds() + " secondes"
+        }
+        return str
+    }
+
 }

@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/var.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <title>Ma maison</title>
 </head>
 <body class="app">
@@ -43,7 +45,16 @@
         <section class="side-menu side-menu-hidden-brut" id="side-menu">
             <section class="side-menu-el side-menu-user">
                 <header>
-                    <h2>Mon super menu</h2>
+                    <ul class="user">
+                        <li><img id="avatar" src="/assets/images/default-avatar.png" alt=""></li>
+                        <li><p>Bonjour <span id="firstname" class="strong"></span> <span id="lastname" class="strong"></span></p></li>
+                        <li>
+                            <ul class="user-setting">
+                                <li><button id="preference">Preference</button></li>
+                                <li><button>Logout</button></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </header>
                 <ul>
                     <li>
@@ -56,7 +67,7 @@
             </section>
             <section class="side-menu-el side-menu-devices">
                 <header>
-                    <h2>Mes devices</h2>
+                    <h2>Vos capteurs</h2>
                 </header>
                 <ul>
                     <li>
@@ -75,11 +86,23 @@
                 <div id="loader" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             </div>
         </section>
+        <section class="preference_menu" id="preference_menu">
+            <header>
+                <h3>Preference</h3>
+            </header>
+            <section class="bgcolor">
+                <header>
+                    <h4>Couleur de l'interface</h4>
+                </header>
+                <ul id="bgcolor_list"></ul>
+            </section>
+        </section>
     </main>
 </body>
 <footer>
     <script src="js/loader.js"></script>
     <script>const loader = new Loader()</script>
+    <script src="js/color.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/controllers/homeController.js"></script>

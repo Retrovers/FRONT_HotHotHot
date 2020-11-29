@@ -41,7 +41,7 @@ class Utils {
     }
 
     getFullPath() {
-        return document.location.origin  + document.location.pathname
+        return document.location.origin  + '/'
     }
 
     getTimeFrom(timestamp) {

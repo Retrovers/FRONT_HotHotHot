@@ -18,7 +18,6 @@ const preferenceMenu = document.getElementById('preference_menu')
 
 window.data = []
 
-
 let setEventForSideMenu = () => {
     document.getElementById('open-side-menu').addEventListener('click', (e) => {
         if (isPreferenceMenuIsOpen) {
@@ -86,10 +85,10 @@ let setUserPreference = () => {
     let firstname = document.getElementById('firstname')
     let lastname = document.getElementById('lastname')
 
-    firstname.innerText = window.data['user'].firstname
-    lastname.innerText = window.data['user'].lastname
-    if (window.data['user'].avatar !== '') {
-        avatar.img = window.data['user'].avatar
+    firstname.innerText = user.userData('firstname')
+    lastname.innerText = user.userData('lastname')
+    if (user.userData('avatar') !== '') {
+        avatar.img = user.userData('avatar')
     }
 }
 
@@ -108,17 +107,31 @@ let showPreference = (e) => {
     }
 }
 
-window.addEventListener('hashchange', router);
-window.addEventListener('load', router);
+window.addEventListener('hashchange', () => {
+    if (isSideMenuIsOpen) {
+        sideMenu.classList.add('side-menu-hidden-fluid')
+        sideMenu.classList.remove('side-menu-show')
+        content.classList.remove('content-none-mobile')
+        isSideMenuIsOpen = !isSideMenuIsOpen
+    }
+    router()
 
-document.getElementById('preference').addEventListener('click', showPreference)
+});
 
-generateMenuPreference()
-setEventForSideMenu()
-setHoursAndDate()
+let init = () => {
 
-fetch(utils.getFullPath() + '/data/user.json').then(res => res.json()).then(res => {
-    window.data['user'] = res['user']
+
+    document.getElementById('preference').addEventListener('click', showPreference)
+    document.getElementById('logout').addEventListener('click', user.logout)
+
+    generateMenuPreference()
+    setEventForSideMenu()
+    setHoursAndDate()
+
     setUserPreference()
-})
 
+}
+
+const user = new User(init);
+
+window.addEventListener('load', router);

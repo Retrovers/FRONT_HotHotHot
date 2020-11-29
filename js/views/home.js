@@ -1,9 +1,21 @@
 (() => {
-  // console.log(window.data)
+
+   "use strict"
+
+   let searchArticle = (path) => {
+      let result = false
+      path.forEach((el) => {
+         if (el.tagName !== undefined && el.tagName.toLowerCase() === 'article' && el.classList.contains('devices') && el.hasAttribute('sensor_id')) {
+            result = el
+         }
+      })
+      return result
+   }
 
    let createSensor = (parent, sensor) => {
       let article = document.createElement('article')
       article.classList.add('devices')
+      article.setAttribute('sensor_id', sensor.id)
 
       let header = document.createElement('header')
       header.classList.add('main-info')
@@ -53,6 +65,11 @@
       article.appendChild(h5)
 
       parent.appendChild(article)
+
+      article.addEventListener('click', (e) => {
+         let el = searchArticle(e.path)
+         window.location.hash =  '/capteur:' + el.getAttribute('sensor_id')
+      })
    }
 
    let widget = document.getElementById('widget')

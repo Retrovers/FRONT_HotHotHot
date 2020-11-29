@@ -1,9 +1,12 @@
+"use strict"
+
 const utils = new Utils();
 const color = new Color();
 
 let alreadyOpen = false
 let isSideMenuIsOpen = false
 let isPreferenceMenuIsOpen = false
+let modalAlertIsOpen = false
 const sideMenu = document.getElementById('side-menu') 
 const content = document.getElementById('content')
 
@@ -13,6 +16,11 @@ const years = document.getElementById('years')
 const month = document.getElementById('month')
 const day = document.getElementById('day')
 const dayName = document.getElementById('dayName')
+
+const modalAlert = document.getElementById('alert-modal')
+const alertShowButton = document.getElementById('alert-show')
+const alertUl = document.getElementById('alert-modal-list')
+const alertCount = document.getElementById('alert-count')
 
 const preferenceMenu = document.getElementById('preference_menu')
 
@@ -92,6 +100,15 @@ let setUserPreference = () => {
     }
 }
 
+let hideAlertModal = () => {
+    modalAlert.style.display = 'none'
+}
+
+let showAlertModal = () => {
+    modalAlert.style.display = 'flex'
+    modalAlert.children.item(0).classList.add('modal-show')
+}
+
 let showPreference = (e) => {
 
     if (isSideMenuIsOpen && !isPreferenceMenuIsOpen) {
@@ -123,6 +140,9 @@ let init = () => {
 
     document.getElementById('preference').addEventListener('click', showPreference)
     document.getElementById('logout').addEventListener('click', user.logout)
+
+    alertShowButton.addEventListener('click', showAlertModal)
+    modalAlert.addEventListener('click', hideAlertModal)
 
     generateMenuPreference()
     setEventForSideMenu()

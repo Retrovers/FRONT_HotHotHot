@@ -1,4 +1,10 @@
 @media screen and (min-width: 200px) and (max-width: 640px) {
+    html,
+    body,
+    main {
+        overflow: auto;
+        overflow-x: hidden;
+    }
     .head-right {
         display: none;
     }

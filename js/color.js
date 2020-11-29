@@ -1,3 +1,5 @@
+"use strict"
+
 class Color {
 
     current_color = 1

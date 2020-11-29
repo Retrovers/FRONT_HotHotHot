@@ -1,6 +1,8 @@
+"use strict"
+
 class MaisonController extends Controller {
 
-    async load () {
+    async load (params) {
         this.animate().then(() => {
             fetch(utils.getFullPath() + '/views/maison.html')
             .then(res => res.text())

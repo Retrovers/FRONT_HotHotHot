@@ -129,4 +129,22 @@
 
 }
 
+@keyframes modal-content-show {
+    from {
+        top: -200%;
+    }
+    to {
+        top: 0;
+    }
+}
+
+@keyframes modal-content-hide {
+    from {
+        top: 0;
+    }
+    to {
+        top: -200%;
+    }
+}
+
   
